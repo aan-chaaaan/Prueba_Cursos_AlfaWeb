@@ -20,18 +20,31 @@
               curso.nombre
             }}</v-card-title>
 
-            <v-card-subtitle>{{ curso.descripcion }}</v-card-subtitle>
-            <!-- <v-card-text>Costo: {{ curso.costo }} </v-card-text>
-            <v-card-text>Duracion: {{ curso.duracion }}</v-card-text>
-            <v-card-text>Cupos: {{ curso.cupos }}</v-card-text> -->
             <v-card-text>
-              <v-chip-group
-                column   
-              >
-                <v-chip class="teal lighten-4"> Duracion: {{ curso.duracion }} </v-chip>
-                <v-chip class="light-blue lighten-2"> Cupos: {{ curso.cupos }} </v-chip>
-                <v-chip class="deep-purple accent-1"> Costo: {{ curso.costo }} </v-chip>
-              </v-chip-group>
+              <v-list>
+                <v-chip-group column>
+                  <v-list-item>
+                    <v-chip class="teal lighten-4">
+                      <v-avatar><v-icon>mdi-star</v-icon></v-avatar>
+                      Duración: {{ curso.duracion }}
+                    </v-chip>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-chip class="light-blue lighten-2">
+                      <v-avatar><v-icon>mdi-star</v-icon></v-avatar>
+                      Cupos: {{ curso.cupos }}
+                    </v-chip>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-chip class="deep-purple accent-1">
+                  <v-avatar><v-icon>mdi-star</v-icon></v-avatar>
+                  Costo: {{ curso.costo.toLocaleString() }}
+                </v-chip>
+                  </v-list-item>
+                </v-chip-group>
+              </v-list>
+              <v-divider></v-divider>
+              <v-card-subtitle>{{ curso.descripcion }}</v-card-subtitle>
             </v-card-text>
           </v-card>
         </v-col>
@@ -112,6 +125,4 @@ export default {
   },
 };
 </script>
-<style>
-
-</style>
+<style></style>
