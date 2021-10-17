@@ -6,14 +6,18 @@
       <h3>Ingresa con tus credenciales o registrate</h3>
     </v-container>
 
-    <v-form ref="form" @submit.prevent="validarForm" lazy-validation class="container"  >
+    <v-form
+      ref="form"
+      @submit.prevent="validarForm"
+      lazy-validation
+      class="container"
+    >
       <v-text-field
         v-model="email"
         :counter="10"
         :rules="emailRules"
         label="Correo"
         required
-        
       ></v-text-field>
 
       <v-text-field
@@ -66,6 +70,29 @@ export default {
   }),
 
   methods: {
+    validate() {
+      this.$refs.form.validate();
+    },
+    reset() {
+      this.$refs.form.reset();
+    },
+    resetValidation() {
+      this.$refs.form.resetValidation();
+    },
+
+    // async validarForm() {
+    //   if (this.$refs.form.validate()) {
+    //     try {
+    //       await this.$store.dispatch(
+    //         "sesion/InicioSesion",
+    //         this.email,
+    //         this.password
+    //       );
+    //     } catch (e) {
+    //       console.log(e)
+    //     }
+    //   }
+    // },
     validarForm() {
       Firebase.auth()
         .signInWithEmailAndPassword(this.email, this.password)
@@ -76,16 +103,6 @@ export default {
         .catch((response) => {
           console.error(response);
         });
-    },
-
-    validate() {
-      this.$refs.form.validate();
-    },
-    reset() {
-      this.$refs.form.reset();
-    },
-    resetValidation() {
-      this.$refs.form.resetValidation();
     },
   },
 };
