@@ -91,6 +91,7 @@
 </template>
 
 <script>
+import Firebase from "firebase";
 import AgregarCurso from "./AgregarCurso.vue";
 
 export default {
@@ -117,11 +118,17 @@ export default {
       this.$router.push(`/cursos/${item.id}`);
     },
     EliminarCurso(item) {
-      console.log("eliminar el item => ", item);
+      Firebase.firestore()
+      .collection("usuarios")
+      .doc(item.id)
+      .delete()
+      .then(() => {
+        this.$store.dispatch("cursos/TodosLosCursos")
+      });
     },
-    AgregarCurso() {
-      this.$router.push(`/Home/AgregarCurso`);
-    },
+    // AgregarCurso() {
+    //   this.$router.push(`/Home/AgregarCurso`);
+    // },
   },
 };
 </script>

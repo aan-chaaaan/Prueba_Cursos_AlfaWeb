@@ -52,7 +52,6 @@ export default {
       .then((document) => {
         next((vm) => {
           vm.curso = { id: document.id, ...document.cursos() };
-
         });
       });
   },
@@ -76,9 +75,9 @@ export default {
         console.log("formulario valido")
         Firebase.firestore().collection("usuarios")
         .doc(this.curso.id)
-        .add(this.curso)
+        .set(this.curso)
         .then(() => { 
-          this.router.push("/AdministrarCursos")       
+          this.router.push("/Home")       
         })
       }
     },
