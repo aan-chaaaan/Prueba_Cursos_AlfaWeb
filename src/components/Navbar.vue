@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import EditarCurso from "./EditarCurso.vue";
+import EditarCurso from "../views/EditarCurso.vue";
 import Sidebar from "./Sidebar.vue";
 import ModalRegistro from "./ModalRegistro.vue";
 import BtnCerrarSesion from "./BtnCerrarSesion";
