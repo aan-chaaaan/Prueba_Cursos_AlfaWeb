@@ -8,7 +8,7 @@
     <v-card>
       <v-form
         ref="form"
-        @submit.prevent="validarRegistro"
+        @submit.prevent="RegistrarUsuario"
         lazy-validation
         class="container"
       >
@@ -45,6 +45,7 @@
   </v-dialog>
 </template>
 <script>
+import Firebase from "firebase";
 export default {
   name: "ModalRegistro",
   data: () => ({
@@ -66,6 +67,18 @@ export default {
   methods: {
     validate() {
       this.$refs.form.validate();
+    },
+    RegistrarUsuario() {
+      Firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((userCredential) => {
+         console.log(userCredential)
+         alert("Registro exitoso")
+        })
+        .catch((error) => {
+          console.log(error)
+        });
     },
   },
 };

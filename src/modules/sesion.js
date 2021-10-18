@@ -11,19 +11,6 @@ export const ModuloSesion = {
     },
   },
   actions: {
-    // RegistrarUsuario() {
-    //   Firebase
-    //     .auth()
-    //     .createUserWithEmailAndPassword(email, password)
-    //     .then((userCredential) => {
-    //       // Signed in
-    //       const usuario = userCredential.usuario;
-    //       // ...
-    //     })
-    //     .catch((error) => {
-    //       console.log(error)
-    //     });
-    // },
     configurarUsuario(context, usuario) {
       context.commit("SET_USUARIO", usuario);
     },

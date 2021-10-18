@@ -55,7 +55,7 @@
     <!-- VISTA ADMINISTRAR CURSOS -->
     <v-container class="mt-5">
       <h1 class="text-center">ADMINISTRAR</h1>
-      <!-- Boton para ir a vista de agregar curso -->
+      <!-- Modal para ir a vista de agregar curso -->
       <AgregarCurso class="text-end" />
       <v-data-table :items="$store.state.cursos.cursos" :headers="headers">
         <!-- costo -->
@@ -92,7 +92,7 @@
 
 <script>
 import Firebase from "firebase";
-import AgregarCurso from "./AgregarCurso.vue";
+import AgregarCurso from "../components/AgregarCurso.vue";
 
 export default {
   components: {
@@ -126,9 +126,7 @@ export default {
         this.$store.dispatch("cursos/TodosLosCursos")
       });
     },
-    // AgregarCurso() {
-    //   this.$router.push(`/Home/AgregarCurso`);
-    // },
+
   },
 };
 </script>

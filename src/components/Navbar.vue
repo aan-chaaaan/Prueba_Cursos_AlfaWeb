@@ -36,7 +36,7 @@ export default {
     EditarCurso,
   },
   data: () => ({
-    title: "Cursos Alfa",
+    title: "Cursos Alfa Web",
   }),
   methods: {},
 };

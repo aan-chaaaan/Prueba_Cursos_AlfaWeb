@@ -1,9 +1,8 @@
 <template>
-  <!-- pantalla login -->
   <v-app>
     <v-container class="text-center">
       <h1>¡Bienvenido a cursos Alfa Web!</h1>
-      <h3>Ingresa con tus credenciales o registrate</h3>
+      <h3>Ingresa con tus credenciales o regístrate</h3>
     </v-container>
 
     <v-form
